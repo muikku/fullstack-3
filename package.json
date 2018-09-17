@@ -1,0 +1,23 @@
+{
+  "name": "puhelinluettelobackend",
+  "version": "0.0.1",
+  "description": "part of HY fullstack course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muikku/fullstack-3.git"
+  },
+  "author": "Markus Muinonen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muikku/fullstack-3/issues"
+  },
+  "homepage": "https://github.com/muikku/fullstack-3#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
