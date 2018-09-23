@@ -2,14 +2,17 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const cors = require('cors')
 
+app.use(cors())
 
 app.use(bodyParser.json())
-morgan.token('message', function (req, res) {
+
+morgan.token('message-body', function (req, res) {
   return JSON.stringify(req.body, res.body)
   }
 )
-app.use(morgan(':method :url :message :response-time ms'))
+app.use(morgan(':method :url :message-body :response-time ms'))
 
 
 
@@ -44,12 +47,6 @@ let persons = [
 
   app.post('/api/persons', (req, res) => {
     const body = req.body
-
-    const CondErrorMsg = (condition, status, msg) => {
-      if(condition){
-        return res.status(status).json({error: msg})
-      }
-    }
 
     if (body.name === "" || body.name === undefined) {
       return res.status(400).json({error: 'name missing'})
@@ -99,6 +96,6 @@ let persons = [
     res.status(204).end()
   })
 
-const port = 3001
+const port = process.env.PORT || 3001
 app.listen(port)
 console.log(`Server running on port ${port}`)
