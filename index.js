@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 
 app.use(cors())
+app.use(express.static('build'))
 
 app.use(bodyParser.json())
 
@@ -74,9 +75,9 @@ let persons = [
   })
 
   
-  app.get('/', (req, res) => {
+/*   app.get('/', (req, res) => {
     res.send('<h1>Hello World!</h1>')
-  })
+  }) */
 
   app.get('/api/persons', (req, res) => {
     res.json(persons)
