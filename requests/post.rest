@@ -1,8 +1,7 @@
-POST https://puhelinluettelobackend-xtklrbtwbl.now.sh/api/persons
+POST http://localhost:3001/api/persons/
 content-type: application/json
 
     {
-    "name": "asdf",
-    "number": "32",
-    "id": 3
+    "name": "jhjkhkj",
+    "number": "32"
     }

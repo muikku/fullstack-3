@@ -21,6 +21,7 @@ morgan.token('message-body', function (req, res) {
 app.use(morgan(':method :url :message-body :response-time ms'))
 
 
+
   app.post('/api/persons', (req, res) => {
     const body = req.body
 
@@ -28,9 +29,9 @@ app.use(morgan(':method :url :message-body :response-time ms'))
       return res.status(400).json({error: 'name missing'})
     } else if (body.number === "" || body.number === undefined) {
       return res.status(400).json({error: 'number missing'})
-    } else if (persons.map(e => e.name.toLowerCase()).includes(body.name.toLowerCase())) {
+    }/*  else if (persons.map(e => e.name.toLowerCase()).includes(body.name.toLowerCase())) {
       return res.status(400).json({error: 'name: "' + body.name + '" already exists'})
-    }
+    } */
 
     const person = new Person({
       name: body.name,
@@ -44,6 +45,7 @@ app.use(morgan(':method :url :message-body :response-time ms'))
     })
     .catch(error => {
       console.log(error)
+      res.status(400).send({ error: 'name already taken' })
     })
   })
 
