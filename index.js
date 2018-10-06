@@ -40,8 +40,9 @@ app.use(morgan(':method :url :message-body :response-time ms'))
 
     person
     .save()
-    .then(savedperson => {
-      res.json(Person.format(savedperson))
+    .then(Person.format)
+    .then(formattedPerson => {
+      res.json(formattedPerson)
     })
     .catch(error => {
       console.log(error)

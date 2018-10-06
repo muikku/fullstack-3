@@ -20,6 +20,7 @@
   "homepage": "https://github.com/muikku/fullstack-3#readme",
   "dependencies": {
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.17",
     "morgan": "^1.9.1"

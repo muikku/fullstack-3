@@ -1,5 +1,10 @@
 const mongoose = require('mongoose')
-const url = 'mongodb://anon:anon117DB@ds153778.mlab.com:53778/fullstackdb'
+
+if( process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+
+const url = process.env.MONGODB_URI
 
 const params = process.argv.filter((element, index) => index > 1)
 
