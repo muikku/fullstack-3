@@ -1,10 +1,7 @@
 const mongoose = require('mongoose')
 
-if( process.env.NODE_ENV !== 'production'){
-    require('dotenv').config()
-}
 
-const url = process.env.MONGODB_URI
+const url = NaN
 
 const params = process.argv.filter((element, index) => index > 1)
 
@@ -14,45 +11,38 @@ const Number1 = params.filter(e => !isNaN(parseInt(e))).join()
 mongoose.connect(url)
 
 const Person = mongoose.model('Person', {
-    name: String,
-    number: Number
+  name: String,
+  number: Number
 })
 
 
 const person = new Person({
-    name: Name1,
-    number: Number1
-}) 
+  name: Name1,
+  number: Number1
+})
 
 
 if(params.length === 0){
-    Person
+  Person
     .find({})
     .then(result => {
-        console.log('puhelinluettelo:')
-        result.forEach(Person => {
-            console.log(Person.name, Person.number)
-        })
-        mongoose.connection.close()
+      console.log('puhelinluettelo:')
+      result.forEach(Person => {
+        console.log(Person.name, Person.number)
+      })
+      mongoose.connection.close()
     })
 } else {
 
 
-    person
+  person
     .save()
-    .then(result => {
-        console.log('lisätään henkilö ', person.name, 'numbero', person.number, 'luetteloon')
-        mongoose.connection.close()
+    .then(() => {
+      console.log('lisätään henkilö ', person.name, 'numbero', person.number, 'luetteloon')
+      mongoose.connection.close()
     })
 
 }
-
-
-
-
-
-
-
 
 module.exports = Person
 
