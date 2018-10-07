@@ -28,9 +28,7 @@ app.post('/api/persons', (req, res) => {
     return res.status(400).json({ error: 'name missing' })
   } else if (body.number === '' || body.number === undefined) {
     return res.status(400).json({ error: 'number missing' })
-  }/*  else if (persons.map(e => e.name.toLowerCase()).includes(body.name.toLowerCase())) {
-      return res.status(400).json({error: 'name: "' + body.name + '" already exists'})
-    } */
+  }
 
   const person = new Person({
     name: body.name,
@@ -117,6 +115,7 @@ app.put('/api/persons/:id', (req, res) => {
     })
 })
 
-const port = process.env.PORT || 3001
-app.listen(port)
-console.log(`Server running on port ${port}`)
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
