@@ -1,4 +1,4 @@
 # fullstack-3
-Helsinki University fullstack course task 3 repo
+Helsinki University fullstack 2018 course task 3 repo
 
 running @ https://puhelinluettelobackend-btrysibvpj.now.sh
